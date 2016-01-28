@@ -24,10 +24,13 @@
     }
 }
 
-b, // strong is 700
+b,
 th,
 label {
     font-weight: 600;
+}
+strong {
+    font-weight: 700;
 }
 
 // forms
@@ -138,8 +141,10 @@ input.form-control[required] {
         font-size: 13px;
         overflow: hidden;
         .heading-image {
+            display: block;
             position: relative;
-            margin-bottom: -30%;
+            margin: -10% -15% -30%;
+            padding-top: 100%;
         }
         .caption {
             position: relative;
@@ -192,6 +197,23 @@ input.form-control[required] {
         }
     }
 }
+// offer tables
+.offer-table {
+    .img-circle {
+        width: 34px;
+        height: 34px;
+    }
+    .btn {
+        padding-left: 8px;
+        padding-right: 8px;
+        &:first-child {
+            margin-left: -8px;
+        }
+        &:last-child {
+            margin-right: -8px;
+        }
+    }
+}
 
 // offer_view
 .offer_view {
@@ -200,11 +222,11 @@ input.form-control[required] {
     height: 300px;
     img {
         position: absolute;
-        width: 100%;
-        min-width: 700px;
-        bottom: 0px;
+        transform: translate(0%, -50%);
+        top: 50%;
         right: 0px;
         left: 0px;
+        width: 100%;
     }
     .offer-title {
         float: left;
@@ -253,20 +275,29 @@ input.form-control[required] {
                 background: rgba(white, .92);
             }
         }
+        // overwrite addthis share buttons style
         $share-height: 45px;
         .addthis_sharing_toolbox {
             float: left;
             margin-top: 15px;
             height: $share-height;
             .at-share-btn {
+                @include box-shadow(0 0 1px rgba(black, .4));
                 max-height: $share-height;
                 max-width: $share-height;
                 border-radius: 3px;
+                margin: 0 2px !important;
+                .at-icon-wrapper,
                 .at4-icon {
-                    height: $share-height;
-                    line-height: $share-height;
-                    width: $share-height;
+                    height: $share-height !important;
+                    line-height: $share-height !important;
+                    width: $share-height !important;
                     background-size: $share-height auto !important;
+                    border-radius: 3px;
+                    svg {
+                        height: $share-height !important;
+                        width: $share-height !important;
+                    }
                 }
             }
         }
